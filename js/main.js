@@ -30,7 +30,7 @@ function enemyElement(height) {
 
 function startGame() {
   gameArea.innerHTML = '';
-  start.classList.add('hide');
+  start.style.display = 'none';
   gameArea.classList.add('game_area');
   score.classList.add('score');
   car.style.left = '125px';
@@ -49,7 +49,6 @@ function startGame() {
     enemy.y = -100 * settings.traffic * (i + 1);
     enemy.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + 'px';
     enemy.style.top = enemy.y + 'px';
-    enemy.style.background = 'transparent url(../image/enemy2.png) center / cover no-repeat'
     gameArea.appendChild(enemy);
   };
 
@@ -118,7 +117,7 @@ function moveEnemy() {
     if (carRect.right >= enemyRect.left && carRect.left <= enemyRect.right
       && carRect.bottom >= enemyRect.top && carRect.top <= enemyRect.bottom) {
       settings.start = false;
-      start.classList.remove('hide');
+      start.style.display = 'block';
 
     }
 
