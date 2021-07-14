@@ -28,7 +28,7 @@
 .game_area{
   display: block;
   width: 300px;
-  height: 100%;
+  height: 100vh;
   position: relative;
   margin: auto;
   background: #222;
@@ -76,6 +76,11 @@
   border-radius: 50%;
 }
 
+@media (min-width: 600px){
+  .game_area{
+    height: 90vh;
+  } 
+}
 
 
 
