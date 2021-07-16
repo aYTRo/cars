@@ -15,9 +15,7 @@ document.addEventListener('keyup', stopRun);
 leftButton.addEventListener("touchstart", leftsrart);
 leftButton.addEventListener("touchend", leftstop);
 
-const move = {
-  Left: false
-}
+let moveleft = false;
 
 
 const keys = {
@@ -76,7 +74,7 @@ function playGame() {
     score.innerHTML = 'SKORE<br>' + settings.score + '<br><br> SPEED <br>' + settings.speed + '<br><br> TRAFIC <br>' + settings.traffic;
     moveRoad();
     moveEnemy();
-    if ((keys.ArrowLeft || move.Left) && settings.x > 0) {
+    if ((keys.ArrowLeft || moveleft) && settings.x > 0) {
       settings.x -= settings.speed;
     };
     if (keys.ArrowRight && settings.x < 250) {
@@ -138,11 +136,11 @@ function stopRun(event) {
   keys[event.key] = false;
 }
 
-function leftsrart(event) {
-  console.log(event);
-  move[event.left] = true;
+function leftsrart() {
+  console.log(moveleft);
+  moveleft = true;
 }
-function leftstop(event) {
-  console.log(event);
-  move[event.left] = false;
+function leftstop() {
+  console.log(moveleft);
+  moveleft = false;
 }
