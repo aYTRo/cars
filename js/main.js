@@ -12,7 +12,7 @@ start.addEventListener('click', startGame);
 document.addEventListener('keydown', startRun);
 document.addEventListener('keyup', stopRun);
 
-leftButton.addEventListener("mouseover", left);
+leftButton.addEventListener("touchstart", left);
 rightButton.addEventListener('mousemove', right)
 
 
