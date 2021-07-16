@@ -12,8 +12,8 @@ start.addEventListener('click', startGame);
 document.addEventListener('keydown', startRun);
 document.addEventListener('keyup', stopRun);
 
-leftButton.addEventListener("mousedown", left);
-rightButton.addEventListener('click', right)
+leftButton.addEventListener("mouseover", left);
+rightButton.addEventListener('mousemove', right)
 
 
 
