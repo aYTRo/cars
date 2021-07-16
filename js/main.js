@@ -15,7 +15,11 @@ document.addEventListener('keyup', stopRun);
 leftButton.addEventListener("touchstart", leftsrart);
 leftButton.addEventListener("touchend", leftstop);
 
+rightButton.addEventListener("touchstart", rightsrart);
+rightButton.addEventListener("touchend", rightstop);
+
 let moveleft = false;
+let moveright = false;
 
 
 const keys = {
@@ -77,7 +81,7 @@ function playGame() {
     if ((keys.ArrowLeft || moveleft) && settings.x > 0) {
       settings.x -= settings.speed;
     };
-    if (keys.ArrowRight && settings.x < 250) {
+    if ((keys.ArrowRight || moveright) && settings.x < 250) {
       settings.x += settings.speed;
     };
     if (keys.ArrowUp && settings.y > 0) {
@@ -144,3 +148,13 @@ function leftstop() {
   console.log(moveleft);
   moveleft = false;
 }
+
+function rightsrart() {
+  console.log(moveleft);
+  moveright = true;
+}
+function rightstop() {
+  console.log(moveleft);
+  moveright = false;
+}
+
