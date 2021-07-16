@@ -1,13 +1,21 @@
 const score = document.querySelector('.score2'),
   start = document.querySelector('.start'),
   gameArea = document.querySelector('.st'),
-  car = document.createElement('div');
+  car = document.createElement('div'),
+  leftButton = document.querySelector('.left_button'),
+  rightButton = document.querySelector('.right_button');
+
 
 car.classList.add('car');
 
 start.addEventListener('click', startGame);
 document.addEventListener('keydown', startRun);
 document.addEventListener('keyup', stopRun);
+
+leftButton.addEventListener('click', left);
+rightButton.addEventListener('click', right)
+
+
 
 
 const keys = {
@@ -128,4 +136,17 @@ function moveEnemy() {
       item.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + 'px';
     }
   });
+}
+
+function left() {
+  if (settings.x > 0) {
+    settings.x -= settings.speed;
+    car.style.left = settings.x + 'px';
+  }
+}
+function right() {
+  if (settings.x < 250) {
+    settings.x += settings.speed;
+    car.style.left = settings.x + 'px';
+  }
 }
