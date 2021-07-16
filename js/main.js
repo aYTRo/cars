@@ -12,10 +12,12 @@ start.addEventListener('click', startGame);
 document.addEventListener('keydown', startRun);
 document.addEventListener('keyup', stopRun);
 
-leftButton.addEventListener("touchstart", left);
-rightButton.addEventListener('mousemove', right)
+leftButton.addEventListener("touchstart", leftsrart);
+leftButton.addEventListener("touchend", leftstop);
 
-
+const move = {
+  Left: false
+}
 
 
 const keys = {
@@ -74,7 +76,7 @@ function playGame() {
     score.innerHTML = 'SKORE<br>' + settings.score + '<br><br> SPEED <br>' + settings.speed + '<br><br> TRAFIC <br>' + settings.traffic;
     moveRoad();
     moveEnemy();
-    if (keys.ArrowLeft && settings.x > 0) {
+    if ((keys.ArrowLeft || move.Left) && settings.x > 0) {
       settings.x -= settings.speed;
     };
     if (keys.ArrowRight && settings.x < 250) {
@@ -92,18 +94,6 @@ function playGame() {
     requestAnimationFrame(playGame);
   }
 };
-
-
-
-function startRun(event) {
-  event.preventDefault();
-  keys[event.key] = true;
-}
-
-function stopRun(event) {
-  event.preventDefault();
-  keys[event.key] = false;
-}
 
 function moveRoad() {
   let lines = document.querySelectorAll('.line');
@@ -138,15 +128,21 @@ function moveEnemy() {
   });
 }
 
-function left() {
-  if (settings.x > 0) {
-    settings.x -= settings.speed;
-    car.style.left = settings.x + 'px';
-  }
+function startRun(event) {
+  event.preventDefault();
+  keys[event.key] = true;
 }
-function right() {
-  if (settings.x < 250) {
-    settings.x += settings.speed;
-    car.style.left = settings.x + 'px';
-  }
+
+function stopRun(event) {
+  event.preventDefault();
+  keys[event.key] = false;
+}
+
+function leftsrart(event) {
+  console.log(event);
+  move[event.left] = true;
+}
+function leftstop(event) {
+  console.log(event);
+  move[event.left] = false;
 }
