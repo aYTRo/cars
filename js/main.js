@@ -12,7 +12,7 @@ start.addEventListener('click', startGame);
 document.addEventListener('keydown', startRun);
 document.addEventListener('keyup', stopRun);
 
-leftButton.addEventListener('click', left);
+leftButton.addEventListener("mousedown", left);
 rightButton.addEventListener('click', right)
 
 
